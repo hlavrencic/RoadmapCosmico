@@ -2,7 +2,7 @@
     <style> body { margin: 0; } </style>
     
     
-    
+    <script src="./gData.js" ></script>
     <script src="https://unpkg.com/force-graph@1.42.4/dist/force-graph.min.js" ></script>
 </head>
     
@@ -14,17 +14,7 @@
     
     
     <script>
-    // Random tree
-    const N = 300;
-    const gData = {
-    nodes: [...Array(N).keys()].map(i => ({ id: i })),
-    links: [...Array(N).keys()]
-    .filter(id => id)
-    .map(id => ({
-    source: id,
-    target: Math.round(Math.random() * (id-1))
-    }))
-    };
+    
     
     
     
