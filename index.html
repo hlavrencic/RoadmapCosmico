@@ -1,38 +1,36 @@
-<html>
-    <head>
-        <style> body { margin: 0; } </style>
-        
-        
-        
-        <script src="https://unpkg.com/force-graph@1.42.4/dist/force-graph.min.js" />
-    </head>
-        
-        
-        
-    <body>
-        <div id="graph"></div>
-        
-        
-        
-        <script>
-        // Random tree
-        const N = 300;
-        const gData = {
-        nodes: [...Array(N).keys()].map(i => ({ id: i })),
-        links: [...Array(N).keys()]
-        .filter(id => id)
-        .map(id => ({
-        source: id,
-        target: Math.round(Math.random() * (id-1))
-        }))
-        };
-        
-        
-        
-        const Graph = ForceGraph()
-        (document.getElementById('graph'))
-        .linkDirectionalParticles(2)
-        .graphData(gData);
-        </script>
-    </body>
-</html>
+<head>
+    <style> body { margin: 0; } </style>
+    
+    
+    
+    <script src="https://unpkg.com/force-graph@1.42.4/dist/force-graph.min.js" />
+</head>
+    
+    
+    
+<body>
+    <div id="graph"></div>
+    
+    
+    
+    <script>
+    // Random tree
+    const N = 300;
+    const gData = {
+    nodes: [...Array(N).keys()].map(i => ({ id: i })),
+    links: [...Array(N).keys()]
+    .filter(id => id)
+    .map(id => ({
+    source: id,
+    target: Math.round(Math.random() * (id-1))
+    }))
+    };
+    
+    
+    
+    const Graph = ForceGraph()
+    (document.getElementById('graph'))
+    .linkDirectionalParticles(2)
+    .graphData(gData);
+    </script>
+</body>
