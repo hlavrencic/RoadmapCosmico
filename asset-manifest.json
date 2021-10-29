@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/RoadmapCosmico/static/css/main.8c8b27cf.chunk.css",
+    "main.js": "/RoadmapCosmico/static/js/main.b000b821.chunk.js",
+    "main.js.map": "/RoadmapCosmico/static/js/main.b000b821.chunk.js.map",
+    "runtime-main.js": "/RoadmapCosmico/static/js/runtime-main.0f438181.js",
+    "runtime-main.js.map": "/RoadmapCosmico/static/js/runtime-main.0f438181.js.map",
+    "static/js/2.d5c58e4a.chunk.js": "/RoadmapCosmico/static/js/2.d5c58e4a.chunk.js",
+    "static/js/2.d5c58e4a.chunk.js.map": "/RoadmapCosmico/static/js/2.d5c58e4a.chunk.js.map",
+    "static/js/3.ed9b9963.chunk.js": "/RoadmapCosmico/static/js/3.ed9b9963.chunk.js",
+    "static/js/3.ed9b9963.chunk.js.map": "/RoadmapCosmico/static/js/3.ed9b9963.chunk.js.map",
+    "index.html": "/RoadmapCosmico/index.html",
+    "static/css/main.8c8b27cf.chunk.css.map": "/RoadmapCosmico/static/css/main.8c8b27cf.chunk.css.map",
+    "static/js/2.d5c58e4a.chunk.js.LICENSE.txt": "/RoadmapCosmico/static/js/2.d5c58e4a.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0f438181.js",
+    "static/js/2.d5c58e4a.chunk.js",
+    "static/css/main.8c8b27cf.chunk.css",
+    "static/js/main.b000b821.chunk.js"
+  ]
+}
