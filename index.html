@@ -3,24 +3,26 @@
     
     
     <script src="./gData.js" ></script>
+    <script src="./buildRandomTree.js" ></script>
+    <script src="./node.functions.js" ></script>
     <script src="https://unpkg.com/force-graph@1.42.4/dist/force-graph.min.js" ></script>
 </head>
     
-    
-    
+
 <body>
     <div id="graph"></div>
     
-    
-    
     <script>
-    
-    
-    
-    
-    const Graph = ForceGraph()
-    (document.getElementById('graph'))
-    .linkDirectionalParticles(2)
-    .graphData(gData);
+        
+        const graphDiv = document.getElementById('graph');
+
+        const Graph = ForceGraph()(graphDiv)
+            .linkDirectionalParticles(1)
+            .graphData(buildRandomTree(10))
+            //Interacciones
+            .onNodeClick(node => { console.log(node.name); })
+            .onNodeRightClick((node, event) => rename(node))
+        ;
+
     </script>
 </body>
