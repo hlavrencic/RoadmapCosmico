@@ -9,3 +9,5 @@ const buildRandomTree = (n) => {
         }))
     };
 }
+
+export default buildRandomTree;
