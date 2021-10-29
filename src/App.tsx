@@ -1,7 +1,5 @@
-import React from 'react';
 import { ForceGraph2D } from 'react-force-graph';
 
-import logo from './logo.svg';
 import './App.css';
 import buildRandomTree from './buildRandomTree.js';
 
