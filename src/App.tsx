@@ -8,6 +8,7 @@ import buildRandomTree from './buildRandomTree.js';
 function App() {
   return (
     <div className="App">
+      <h1>React</h1>
       <ForceGraph2D 
           graphData={buildRandomTree(40)}
           nodeAutoColorBy="group"
