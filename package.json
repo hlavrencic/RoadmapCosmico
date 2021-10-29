@@ -1,0 +1,8 @@
+{
+  "name": "roadmapCosmico",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/hlavrencic/RoadmapCosmico.github.io.git",
+  "author": "hlavrencic <hernan.hnet@gmail.com>",
+  "license": "MIT"
+}
