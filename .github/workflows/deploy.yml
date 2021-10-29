@@ -11,10 +11,9 @@ jobs:
         node-version: [12.x]
     steps:
     - uses: actions/checkout@v2
+    - uses: borales/actions-yarn@v2.3.0
     - name: Install Packages
-      uses: borales/actions-yarn@v2.3.0
-        with:
-          cmd: install # will run `yarn install` command
+      run: install # will run `yarn install` command
     - name: Build page
       run: run build
     - name: Deploy to gh-pages
