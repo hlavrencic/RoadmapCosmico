@@ -1,20 +1,16 @@
 import { ForceGraph2D } from 'react-force-graph';
 
 import './App.css';
-import buildRandomTree from './buildRandomTree.js';
+import BasicGraph from './components/basicGraph';
+import ColoredGraph from './components/coloredGraph';
+
 
 function App() {
   return (
     <div className="App">
-      <h1>React</h1>
-      <ForceGraph2D 
-          graphData={buildRandomTree(40)}
-          nodeAutoColorBy="group"
-          linkDirectionalArrowLength={3.5}
-          linkDirectionalArrowRelPos={1}
-          linkCurvature={0.25}
-
-        />
+      <h1>Roadmap Cósmico</h1>
+      {/* <BasicGraph length={40}/> */}
+      <ColoredGraph />
     </div>
   );
 }

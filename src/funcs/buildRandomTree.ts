@@ -1,7 +1,7 @@
-const buildRandomTree = (n) => {
+const buildRandomTree = (length: number) => {
     return {
-        nodes: [...Array(n).keys()].map(i => ({ id: i, name: 'Nodo ' + i })),
-        links: [...Array(n).keys()]
+        nodes: [...Array(length).keys()].map(i => ({ id: i, name: 'Nodo ' + i })),
+        links: [...Array(length).keys()]
         .filter(id => id)
         .map(id => ({
         source: id,
