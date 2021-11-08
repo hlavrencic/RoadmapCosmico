@@ -1,13 +1,20 @@
 import { useEffect, useState } from "react"
 import { ForceGraph2D } from "react-force-graph"
 import NodeModal from "../components/nodeModal";
+import { GLink } from "../entities/link";
+import { GNode } from "../entities/node";
+import setNodeColorByLikes from "../funcs/setNodeColorByLikes";
+
+const initialData = {
+    nodes: [] as GNode[],
+    links: [] as GLink[]
+};
 
 const Roadmap = (props: any) => {
 
-    const [nodes, setNodes] = useState([] as any);
-    const [links, setLinks] = useState([] as any);
+    const [data, setData] = useState(initialData);
     const [isNodeModalOpen, setIsNodeModalOpen] = useState(false);
-    const [selectedNode, setSelectedNode] = useState({} as any);
+    const [selectedNode, setSelectedNode] = useState({} as GNode);
     const [formHasError, setFormHasError] = useState(false);
     const [errorMsg, setErrorMsg] = useState('');
 
@@ -19,34 +26,46 @@ const Roadmap = (props: any) => {
     //API calls
     const getData = async () => {
         console.log("Obteniendo gData");
-        setNodes([ 
-            { 
-              id: "id1",
-              name: "name1",
-              val: 1,
-              likes: 0,
-              color: '#0f0'
-            },
-            { 
-              id: "id2",
-              name: "name2",
-              val: 1,
-              likes: 0,
-              color: '#0f0'
-            }
-        ]);
-        setLinks([
-            {
-                source: "id1",
-                target: "id2"
-            }
-        ]);
+        setData({
+            nodes: [ 
+                { 
+                  id: "id1",
+                  name: "name1",
+                  likes: 0,
+                  color: '#0f0'
+                },
+                { 
+                  id: "id2",
+                  name: "name2",
+                  likes: 0,
+                  color: '#0f0'
+                }
+            ],
+            links: [
+                {
+                    source: "id1",
+                    target: "id2"
+                }
+            ]
+        });
     };
-
     const updateData = async () => {
-        const newNodes =  nodes.map((n: any) => n.id === selectedNode.id ? selectedNode : n);
-        console.log(JSON.stringify(newNodes));
-        setNodes(newNodes);
+        const newNodes = 
+            data.nodes
+            .map((n: GNode) => n.id === selectedNode.id ? selectedNode : n)
+            .map((n: GNode) => { return { ...n }; });
+            
+        newNodes.forEach(n => setNodeColorByLikes(n));
+
+        setData({
+            nodes: newNodes, 
+            links: [
+                {
+                    source: "id1",
+                    target: "id2"
+                }
+            ]
+        });
     };
 
     //Handlers
@@ -60,14 +79,14 @@ const Roadmap = (props: any) => {
     };
 
     //Modal
-    const openNodeModal = (node: any) => {
+    const openNodeModal = (node: GNode) => {
         setSelectedNode(node);
         setIsNodeModalOpen(true);
     };
     const closeNodeModal = () => {
         setIsNodeModalOpen(false);
         setFormHasError(false);
-        setSelectedNode({});
+        setSelectedNode({} as GNode);
         setErrorMsg('');
     };
     const submitNodeModal = (event: any, form: any) => {
@@ -84,13 +103,18 @@ const Roadmap = (props: any) => {
     const changeInputNodeModal = (prop: any, value: any) => {
         value === '' ? setFormHasError(true) : setFormHasError(false);
 
-        setSelectedNode({...selectedNode, [prop]: value});
+        const node: GNode = {
+            ...selectedNode,
+            [prop]: value
+        };
+
+        setSelectedNode(node);
     };
 
     return (
         <>
             <ForceGraph2D 
-                graphData={{nodes, links}}
+                graphData={data}
                 onNodeClick={onNodeClick}
                 onLinkClick={onLinkClick}
             />

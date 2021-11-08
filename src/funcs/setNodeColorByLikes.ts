@@ -1,12 +1,8 @@
+import { GNode } from "../entities/node";
 
-const onNodeClick = (node: any, event: MouseEvent) => { 
-
-    node.likes++;
-
-    setNodeColorByLikes(node);
-}
-
-const setNodeColorByLikes = (node: any) => {
+const setNodeColorByLikes = (node: GNode) => {
+    if(node.likes <= 3)
+        node.color = '#0f0';
     if(node.likes > 3 && 5 >= node.likes) 
         node.color = '#00f';
     else if (node.likes > 5 && 7 >= node.likes) 
@@ -15,4 +11,4 @@ const setNodeColorByLikes = (node: any) => {
         node.color = '#f00';
 }
 
-export default onNodeClick;
+export default setNodeColorByLikes;
