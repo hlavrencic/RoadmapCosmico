@@ -4,4 +4,5 @@ export class GNode {
     name: string;
     likes: number;
     color: string;
+    val: number;
 }
