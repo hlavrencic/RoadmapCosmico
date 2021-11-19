@@ -1,5 +1,9 @@
 export class GLink {
     source: string;
     target: string;
-    likes?: number;
+    feedbacks: Feedback[];
+}
+
+export class Feedback {
+    calificacion: number;
 }
