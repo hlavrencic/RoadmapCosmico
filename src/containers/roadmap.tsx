@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { ForceGraph2D } from "react-force-graph"
 import LinkModal from "../components/linkModal";
 import NodeModal from "../components/nodeModal";
@@ -466,9 +466,23 @@ const Roadmap = (props: any) => {
         setSelectedLink(link);
     };
 
+    const fgRef = useRef({} as any);
+
+    setInterval(() => {
+        if(!fgRef || !fgRef.current) return;
+
+        data.links.forEach(link => {
+            if(link.likes && link.likes >= 0){
+                fgRef.current.emitParticle(link)
+            }
+        });
+        
+    }, 1000);
+
     return (
         <>
             <ForceGraph2D 
+                ref={fgRef}
                 graphData={data}
                 onNodeClick={onNodeClick}
                 onLinkClick={onLinkClick}
