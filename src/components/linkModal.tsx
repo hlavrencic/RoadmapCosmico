@@ -25,7 +25,7 @@ const LinkModal = (props: any) => {
                         label={'Likes'}
                         type={'number'}
                         required={true}
-                        placeholder={'Puntos del node'}
+                        placeholder={'Puntos del link'}
                         property={'likes'}
                         value={link.likes}
                         handleChange={onChange}
