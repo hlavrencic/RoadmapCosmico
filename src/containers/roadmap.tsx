@@ -20,7 +20,7 @@ const Roadmap = (props: any) => {
     const [errorMsg, setErrorMsg] = useState('');
 
     const [isLinkModalOpen, setIsLinkModalOpen] = useState(false);
-    const [selectedLink, setSelectedLink] = useState({} as GLink);
+    const [selectedLink, setSelectedLink] = useState({} as any);
 
     //OnInit
     useEffect(() => {
@@ -379,8 +379,13 @@ const Roadmap = (props: any) => {
     };
 
     const getLinks = () => {
-        let rta = data.links.map((link: any) => 
-            ({source: link.source.id, target: link.target.id, feedbacks: link.feedbacks}));
+        let rta = data.links.map((link: any) => {
+            if(selectedLink.source.id === link.source.id && selectedLink.target.id === link.target.id){
+                return {source: link.source.id, target: link.target.id, feedbacks: link.feedbacks, likes: selectedLink.likes};
+            }
+
+            return {source: link.source.id, target: link.target.id, feedbacks: link.feedbacks, likes: link.likes};
+        });
         return rta;
     }
 
@@ -445,7 +450,6 @@ const Roadmap = (props: any) => {
         setFormHasError(true);
 
         if(form.checkValidity()) {
-
             console.log(JSON.stringify(selectedLink));
             updateData();
             closeLinkModal();
