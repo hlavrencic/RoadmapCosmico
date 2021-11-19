@@ -5,5 +5,5 @@ export class GNode {
     likes: number;
     color: string;
     val: number;
-    url: string; //url del curso
+    url?: string; //url del curso
 }
